@@ -1,0 +1,11 @@
+.ngx-file-drop__drop-zone{
+    border: 3px dotted var(--very-dark) !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ngx-file-drop__content{
+    color: var(--very-dark) !important;
+    height: 100% !important;
+    flex-wrap: wrap !important;
+}

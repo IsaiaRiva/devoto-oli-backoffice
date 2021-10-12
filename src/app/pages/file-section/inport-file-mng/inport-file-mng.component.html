@@ -1,0 +1,35 @@
+<div style="height: 100%; display: flex;">
+
+    <app-dashboard></app-dashboard>
+    
+    <div class="drag-drop-container">
+        <div class="drop-zone" style="height: 100%;">
+            <ngx-file-drop 
+                dropZoneLabel="Drop files here" 
+                (onFileDrop)="dropped($event)" 
+                (onFileOver)="fileOver($event)" 
+                (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                  Drop your files here or 
+                  <button mat-stroked-button class="text-btn" type="button" (click)="openFileSelector()">
+                    Browse Files
+                  </button>
+                </ng-template>
+            </ngx-file-drop>
+        </div>
+        <div class="upload-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Files: </th>
+                    </tr>
+                </thead>
+                <tbody class="upload-name-style">
+                    <tr *ngFor="let item of files; let i=index">
+                        <td><strong>{{ item.relativePath }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
