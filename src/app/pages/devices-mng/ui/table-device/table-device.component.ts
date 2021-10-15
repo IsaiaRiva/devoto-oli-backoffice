@@ -4,29 +4,45 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'app-table-device',
   template: `
     <ng-container *ngIf="userCase">
-      <p>{{data}}</p>
+      <p class="user">{{data}}</p>
     </ng-container>
-    <ng-container *ngIf="deviceCase">
+
+    <ng-container *ngIf="devicesCase">
       <ng-container *ngFor="let item of data">
         <div class="devices-container">
-          <p class="device">{{item.id}}) {{item.device}} - {{item.version}}
-            <button>
+          <div  class="device">
+            <p>
+              Device: <strong>{{item.device | uppercase}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Version: <strong>{{item.version | uppercase}}</strong>
+            </p>
+            <button class="d-btn">
               <mat-icon>delete_outline</mat-icon>
             </button>
-          </p>
+          </div>
         </div>
       </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="numDevices">
+      <p class="df"><strong style="opacity: .8;">n. {{data}}</strong></p>
     </ng-container>
   `,
   styles: [`
   button {
     border: none;
-    background-color: transparent
+    background-color: transparent;
+    border-radius: 50%;
   }
   .device {
     display: flex;
+    padding: 1px;
     justify-content: space-between;
-    margin: 15px 4px;
+  }
+  .d-btn:hover {
+    background-color: var(--very-dark-lo);
+  }
+  .user {
+    font-style: italic;
   }
   `]
 })
@@ -35,7 +51,8 @@ export class TableDeviceComponent implements OnInit {
   // type Device[] or string
   @Input() data: any;
   userCase = false;
-  deviceCase = false;
+  devicesCase = false;
+  numDevices = false;
   constructor() {}
 
   ngOnInit(): void {
@@ -44,8 +61,11 @@ export class TableDeviceComponent implements OnInit {
         this.userCase = true;
         break;
       case 'Devices':
-        this.deviceCase = true;
+        this.devicesCase = true;
         break;
+      case 'Num.':
+        this.numDevices = true;
+      break;
     }
   }
 }

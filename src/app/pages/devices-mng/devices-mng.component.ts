@@ -18,15 +18,20 @@ export class DevicesMngComponent implements OnDestroy, AfterViewInit{
 
   columns = [
     {
-      columnDef: 'User',
+      columnDef: 'user',
       header: 'User',
       cell: (element: Devicedata) => element.username
     },
     {
-      columnDef: 'Devices',
+      columnDef: 'numberOfDevices',
+      header: 'Num.',
+      cell: (element: Devicedata) => element.devices.length
+    },
+    {
+      columnDef: 'devices',
       header: 'Devices',
       cell: (element: Devicedata) => element.devices
-    },
+    }
   ];
 
   displayedColumns = this.columns.map(c => c.columnDef);

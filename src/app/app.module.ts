@@ -25,6 +25,7 @@ import { TableDeviceComponent } from './pages/devices-mng/ui/table-device/table-
 import { DashboardComponent } from './ui/dashboard/dashboard.component';
 
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { FooterComponent } from './ui/footer/footer.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     DashboardComponent,
     PagesMenuComponent,
     TableDeviceComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

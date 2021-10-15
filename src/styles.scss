@@ -33,16 +33,20 @@ $back-office-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($back-office-theme);
 
-@import './custom-styles.scss/color.scss';
-@import './custom-styles.scss/variables.scss';
-@import './custom-styles.scss/material-custom.scss';
-@import './custom-styles.scss/drag-and-drop.scss';
+@import './custom-styles/color.scss';
+@import './custom-styles/variables.scss';
+@import './custom-styles/material-custom.scss';
+@import './custom-styles/drag-and-drop.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@350&display=swap');
+@import './custom-styles/font.scss';
 
 html, body { 
   height: 100%;
   background-color: var(--light);
  }
-body { 
+body, h3 { 
   margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif; 
 }

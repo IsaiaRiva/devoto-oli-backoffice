@@ -6,7 +6,7 @@ import { DashboardService } from '../../services/dashboard.service';
   template: `
     <mat-sidenav-container>
       <mat-sidenav mode="side" [opened]="navStatus | async" >
-        <div class="header">
+        <div class="df header">
           <h3 class="title">BackOffice</h3>
           <button
             mat-mini-fab
@@ -19,7 +19,7 @@ import { DashboardService } from '../../services/dashboard.service';
         <app-pages-menu></app-pages-menu>
       </mat-sidenav>
       <mat-sidenav-content *ngIf="(navStatus | async) === (false)">
-        <div cdkDrag id="openNavBtn">
+        <div>
           <button
             mat-mini-fab
             class="btn-nav"
@@ -37,7 +37,8 @@ import { DashboardService } from '../../services/dashboard.service';
     }
     mat-sidenav {
       width: 13rem;
-      background-color: var(--light-dark)
+      background-color: var(--light-dark);
+      position: fixed;
     }
     mat-sidenav, mat-sidenav-content {
       padding: 15px;
@@ -48,17 +49,22 @@ import { DashboardService } from '../../services/dashboard.service';
     .btn-nav {
       background-color: var(--very-dark);
       box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+      top: -2px;
+      margin-left: 6px;
     }
     .header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       margin-bottom: 35px;
+      padding: 4px;
     }
     .title {
       margin: auto;
-      font-size: 25px;
+      font-size: 34px;
       color: var(--very-light);
+      font-family: var(--normal);
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      font-decoration: undeline;
+      text-shadow: 2px 2px 0px rgb(0 0 0 / 30%);
     }
   `]
 })

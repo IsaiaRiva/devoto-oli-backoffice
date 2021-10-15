@@ -1,0 +1,125 @@
+@mixin background {
+    opacity: .9;
+    background-color: var(--very-dark);
+    color: var(--very-light);
+    font-style: italic;
+}
+
+// table section
+.mat-body p {
+    margin: auto;
+    text-align: center;
+}
+
+.mat-table {
+    font-family: var(--normal);
+    letter-spacing: normal;
+}
+
+.mat-cell {
+    font-size: 17px;
+}
+
+.mat-header-cell {
+    font-size: 25px;
+    font-weight: 600;
+    @include background;
+}
+.mat-sort-header-content {
+    letter-spacing: 2px;
+    padding: 12px;
+    margin-right: 5px;
+}
+
+.mat-paginator-container {
+    @include background;
+}
+
+.mat-paginator-page-size-label, .mat-paginator-range-label{
+    font-family: var(--normal);
+    font-size: large;
+    letter-spacing: 1px;
+}
+
+.mat-paginator-page-size {
+    padding-bottom: 10px;
+}
+
+.mat-paginator-icon, .mat-select-arrow{
+    color: var(--very-light);
+}
+
+td.mat-cell {
+    border-bottom-width: 2px !important;
+    &:last-of-type {
+        padding-right: 4px !important;
+    }
+}
+
+.mat-select-value-text {
+    color: var(--very-light);
+    font-size: 16px;
+    font-family: var(--normal);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+// input section
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: var(--very-light);
+    opacity: .8;
+}
+
+.filter {
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background-color: var(--dark);
+        opacity: .8;
+    }
+}
+
+.mat-form-field {
+    font-family: var(--normal);
+}
+
+.mat-typography p {
+    margin: 9px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    font-size: 20px;
+    color: var(--dark);
+}
+
+
+// expantion panel section
+.mat-expansion-panel-body {
+    padding: 0px !important;
+}
+
+.mat-expansion-panel-header-title {
+    margin-right: 0px !important;
+}
+
+.mat-expansion-panel-body {
+    background-color: var(--light);
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    height: 50px;
+}
+
+// btn section
+.text-btn {
+    margin-left: 20px !important;
+    background-color: var(--dark);
+    color: var(--very-light);
+    font-size: 16px;
+    font-style: italic;
+    &:hover {
+        background-color: var(--very-dark);
+    }
+}
+
+.mat-stroked-button {
+    font-family: var(--normal);
+}

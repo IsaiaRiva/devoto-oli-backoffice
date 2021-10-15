@@ -16,7 +16,12 @@ import { DashboardService } from '../../services/dashboard.service';
               </mat-panel-title>
             </mat-expansion-panel-header>
               <ng-container *ngFor="let section of item.section, let i = index">
-                  <p><a class="section" [routerLink]="section.route">{{i+1}}) {{section.name}}</a></p>
+                <p class="df">
+                  <a class="df" [routerLink]="section.route">
+                    <mat-icon class="icon">description</mat-icon>
+                    {{section.name}}
+                  </a>
+                </p>
               </ng-container>
           </mat-expansion-panel>
         </mat-accordion>
@@ -27,14 +32,21 @@ import { DashboardService } from '../../services/dashboard.service';
     mat-panel-title p {
       margin: auto;
       color: var(--very-dark);
+      font-family: var(--normal);
+      letter-spacing: 1px;
+      font-style: italic;
+      font-size: 19px;
+      font-weight: bolder;
     }
-    .section{
-      margin: auto; 
-      padding: 10px 10px 10px 20px;
+    .icon{
+      margin-right: 5px;
+      color: var(--very-dark);
     }
     a {
       text-decoration: none;
       color: var(--very-dark);
+      font-family: var(--normal);
+      font-size: 17px;
     }
     `]
 })
