@@ -12,6 +12,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,13 +22,18 @@ import { DevicesMngComponent } from './pages/devices-mng/devices-mng.component';
 import { InportFileMngComponent } from './pages/file-section/inport-file-mng/inport-file-mng.component';
 import { ProcessTableComponent } from './pages/file-section/process-table/process-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagesMenuComponent } from './ui/pages-menu/pages-menu.component';
-import {HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TableDeviceComponent } from './pages/devices-mng/ui/table-device/table-device.component';
 import { DashboardComponent } from './ui/dashboard/dashboard.component';
 
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { FooterComponent } from './ui/footer/footer.component';
+import { HelperInterceptor } from './services/helper/helper.interceptor';
+import { ErrorComponent } from './ui/error/error.component';
+import { PageComponent } from './ui/page/page.component';
+import { TitleComponent } from './ui/title/title.component';
+import { UploadComponent } from './ui/upload/upload/upload.component';
+import { CompactPageComponent } from './ui/page/compact-page.component';
 
 
 @NgModule({
@@ -35,9 +43,13 @@ import { FooterComponent } from './ui/footer/footer.component';
     InportFileMngComponent,
     ProcessTableComponent,
     DashboardComponent,
-    PagesMenuComponent,
     TableDeviceComponent,
     FooterComponent,
+    ErrorComponent,
+    PageComponent,
+    TitleComponent,
+    UploadComponent,
+    CompactPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +67,18 @@ import { FooterComponent } from './ui/footer/footer.component';
     MatInputModule,
     HttpClientModule,
     MatTableExporterModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HelperInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

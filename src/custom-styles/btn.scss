@@ -1,0 +1,94 @@
+@import './variables.scss';
+
+.btn {
+    @include genStyle;
+    min-width: 100px;
+    margin-left: 10px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.export {
+    transform: rotate(-45deg);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-btn {
+    width: 85%;
+    margin: 5px 5px 20px 5px;
+}
+
+.btn-nav {
+    background-color: var(--very-dark) !important;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25) !important;
+    top: -2px;
+}
+
+@mixin logout {
+    position: absolute;
+    width: 80%;
+    &::before {
+        content: "";
+        height: 2px;
+        position: absolute;
+        border-radius: 10px;
+        top: -15px;
+        background-color: var(--gray);
+    }
+}
+
+.logout {
+    @include logout;
+    bottom: 10px;
+    &::before {
+        right: -10px;
+        width: 155px;
+    }
+}
+
+.clogout {
+    @include logout;
+    bottom: 50px;
+    &::before {
+        right: -3px;
+        width: 65px;
+    }
+}
+
+$colors: ("green", "orange", "azure", "red", "blue");
+
+@each $color in $colors {
+    .btn-#{$color} {
+        color: var(--#{$color}) !important;
+        background-color: var(--bg-#{$color}) !important;
+        // box-shadow: 0px 6px 5px 2px var(--shadow-#{$color});
+        box-shadow: 1px 2px 3px 1px var(--shadow-#{$color}) !important;
+        &:hover {
+            color: var(--bg-#{$color}) !important;
+            background-color: var(--#{$color}) !important;
+        }
+    }
+}
+
+@each $color in $colors {
+    .no-focus-#{$color} {
+        background-color: transparent;
+        color: var(--gray);
+        box-shadow: none;
+        &:hover {
+            color: var(--#{$color});
+            background-color: var(--bg-#{$color});
+            box-shadow: 1px 2px 3px 1px var(--shadow-#{$color});
+        }
+    }
+}
+
+.no-focus {
+    background-color: transparent;
+    color: var(--gray);
+    box-shadow: none;
+
+}
+

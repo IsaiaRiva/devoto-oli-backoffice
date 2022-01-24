@@ -1,4 +1,3 @@
-// css color variable 
 :root {
     --very-light: #fdfdff;
     --light: #dfded2;
@@ -7,4 +6,33 @@
     --very-dark: #393d3f;
     // low opacity
     --very-dark-lo: #393d3f1f;
+
+    // three color for each button to describe all properties
+    --green: rgb(20 99 62);
+    --shadow-green: rgba(20, 99, 62, 0.4);
+    --bg-green: rgb(148 205 23);
+
+    --orange: rgb(255 229 0);
+    --shadow-orange: rgba(255, 230, 0, 0.4);
+    --bg-orange: rgb(255 154 0);
+
+    --red: rgb(205 232 23);
+    --shadow-red: rgba(255, 72, 0, 0.4);
+    --bg-red: rgb(255 72 0);
+
+    --azure: rgb(37 35 140);
+    --shadow-azure: rgba(37, 35, 140, 0.4);
+    --bg-azure: rgb(1 207 255);
+    
+    --blue: rgb(255 255 255);
+    --shadow-blue: rgba(4, 0, 255, 0.5);
+    --bg-blue: rgb(6 0 255);
+    
+    // rest of the colors
+    --gray: rgb(128 128 128);
+    --light-gray: rgb(229 239 255);
+    --white: rgb(255 255 255);
+    --black: rgb(48 48 48);
+    --t-blue: rgb(37 35 140);
+
 }

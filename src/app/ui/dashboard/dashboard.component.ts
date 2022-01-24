@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { DashboardService } from '../../services/dashboard.service';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,64 +7,49 @@ import { DashboardService } from '../../services/dashboard.service';
     <mat-sidenav-container>
       <mat-sidenav mode="side" [opened]="navStatus | async" >
         <div class="df header">
-          <h3 class="title">BackOffice</h3>
+          <h3 class="title">BACK OFFICE</h3>
           <button
             mat-mini-fab
             class="btn-nav"
             *ngIf="navStatus | async"
             (click)="navStatus.next(false)">
-            <mat-icon>arrow_back</mat-icon>
+            <mat-icon>highlight_off</mat-icon>
           </button>
         </div>
-        <app-pages-menu></app-pages-menu>
+        <app-page></app-page>
       </mat-sidenav>
       <mat-sidenav-content *ngIf="(navStatus | async) === (false)">
-        <div>
-          <button
-            mat-mini-fab
-            class="btn-nav"
-            (click)="navStatus.next(true)">
-            <mat-icon>menu_open</mat-icon>
-          </button>
-        </div>
+        <app-compact-page></app-compact-page>
       </mat-sidenav-content>
     </mat-sidenav-container>
   `,
   styles: [`
     mat-sidenav-container {
       min-height: 100vh;
-      background-color: var(--light)
+      background-color: var(--white)
     }
     mat-sidenav {
-      width: 13rem;
-      background-color: var(--light-dark);
+      width: 11rem;
+      background-color: var(--white);
       position: fixed;
     }
-    mat-sidenav, mat-sidenav-content {
-      padding: 15px;
+    mat-sidenav {
+      padding: 15px 5px;
     }
     mat-sidenav-content {
-      background-color: var(--light)
+      background-color: var(--white);
+      margin: 15px 0px;
+      padding: 10px;
     }
-    .btn-nav {
-      background-color: var(--very-dark);
-      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
-      top: -2px;
-      margin-left: 6px;
+    .mat-drawer-side {
+     border-right: none;
+    }
+    .mat-drawer-content {
+      height: 100vh;
     }
     .header {
-      margin-bottom: 35px;
+      margin: 15px 0px 35px 0px;
       padding: 4px;
-    }
-    .title {
-      margin: auto;
-      font-size: 34px;
-      color: var(--very-light);
-      font-family: var(--normal);
-      letter-spacing: 1.5px;
-      font-weight: 600;
-      font-decoration: undeline;
-      text-shadow: 2px 2px 0px rgb(0 0 0 / 30%);
     }
   `]
 })

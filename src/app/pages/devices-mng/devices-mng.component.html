@@ -1,57 +1,63 @@
 <div class="container" *ngIf="dataSource">
     <app-dashboard></app-dashboard>
-    <div class="table">
-        <div>
-            <div class="filter df">
-                <mat-icon>search</mat-icon>
-                <mat-form-field class="form-field">
-                    <input matInput (keyup)="applyFilter($event)" placeholder="Type to search..." #input>
-                </mat-form-field>
-                <button mat-stroked-button 
-                    (click)="exporter.exportTable('xlsx', {fileName: 'table-devices'})"
-                    class="text-btn">
-                    Export in .xlsx
-                </button>
-                <button mat-stroked-button 
-                    (click)="exporter.exportTable('csv', {fileName: 'table-devices'})"
-                    class="text-btn">
-                    Export in .csv
-                </button>
-            </div>
-              
-            <div class="mat-elevation-z8">
-                <table
-                    mat-table
-                    matTableExporter
-                    #exporter="matTableExporter"
-                    [dataSource]="dataSource"
-                    matSort>
-                
-                    <ng-container *ngFor="let column of columns, let i = index" [matColumnDef]="column.columnDef">
-                        <th class="th{{i}}" mat-header-cell *matHeaderCellDef mat-sort-header>{{column.header}}</th>
-                        <td class="td{{i}}" mat-cell *matCellDef="let row">
-                            <ng-container >
-                                <app-table-device
-                                    [data]="column.cell(row)"
-                                    [column]="column.header"
-                                    >
-                                </app-table-device>
-                            </ng-container>
-                        </td>
-                    </ng-container>
-                
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                
-                    <tr class="mat-row" *matNoDataRow>
-                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-                    </tr>
-        
-                </table>
-            
-                <mat-paginator [pageSizeOptions]="[10, 25, 50]" aria-label="Select item per page"></mat-paginator>
-            </div>
-        </div> 
-        <app-footer></app-footer>
+    <div class="rounded-box">
+        <div class="table">
+            <app-title [title]="title"></app-title>
+            <div>
+                <div class="df search-container">
+                    <div class="df">
+                        <span class="material-icons search-icon">search</span>
+                        <input type="text" class="search-input" placeholder="inserire email...">
+                        <button class="df btn btn-blue">
+                            <span class="material-icons">manage_search</span>
+                            <span class="s-pos">Cerca</span>
+                        </button>
+                    </div>
+    
+                    <button class="df btn btn-blue">
+                        <span style="margin-right: 10px">Esporta</span>
+                        <span class="material-icons export">send</span>
+                    </button>
+                    <!-- <button mat-stroked-button 
+                        (click)="exporter.exportTable('xlsx', {fileName: 'table-devices'})"
+                        class="text-btn">
+                        Export in .xlsx
+                    </button>
+                    <button mat-stroked-button 
+                        (click)="exporter.exportTable('csv', {fileName: 'table-devices'})"
+                        class="text-btn">
+                        Export in .csv
+                    </button> -->
+                </div>
+                    
+                <div class="mat-elevation-z8">
+                    <table
+                        mat-table
+                        matTableExporter
+                        #exporter="matTableExporter"
+                        [dataSource]="dataSource"
+                        matSort>
+                    
+                        <ng-container *ngFor="let column of columns, let i = index" [matColumnDef]="column.columnDef">
+                            <th class="th{{i}}" mat-header-cell *matHeaderCellDef mat-sort-header>{{column.header}}</th>
+                            <td class="td{{i}}" mat-cell *matCellDef="let row">
+                                <ng-container >
+                                    <app-table-device
+                                        [data]="column.cell(row)"
+                                        [column]="column.header"
+                                        >
+                                    </app-table-device>
+                                </ng-container>
+                            </td>
+                        </ng-container>
+                    
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    
+                    </table>
+                </div>
+            </div> 
+            <app-footer></app-footer>
+        </div>
     </div>
 </div>

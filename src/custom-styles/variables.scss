@@ -1,5 +1,76 @@
+$bs: 1px 2px 3px 1px rgb(0 0 0 / 35%);
+
 .df {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.rounded-box {
+    background-color: var(--light-gray);
+    width: 100%;
+    border-radius: 34px;
+    margin: 20px 20px 20px 2px;
+    box-shadow: 2px 2px 6px 1px rgb(0 0 0 / 35%);
+    padding: 15px;
+}
+
+.title {
+    margin: auto !important;
+    font-size: 28px !important;
+    color: var(--t-blue);
+    font-family: var(--normal) !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 0px rgba(0, 4, 255, 0.3) !important;
+}
+
+.txt {
+    text-decoration: none;
+    color: var(--very-dark);
+    font-family: var(--normal);
+    font-size: 22px;
+}
+
+@mixin genStyle {
+    font-size: 20px;
+    box-shadow: $bs;
+    padding: 5px 15px;
+    border-radius: 5em;
+    font-family: var(--normal);
+    border: 0;
+    outline: 0;
+    min-height: 25px;
+}
+
+.search-container {
+    padding: 10px 20px;
+    margin-bottom: 1.2rem;
+    justify-content: space-between;
+}
+
+.search-input {
+    @include genStyle;
+    padding: 5px 15px 5px 41px;
+    min-width: 400px;
+    color: var(--very-dark);
+}
+
+.search-icon {
+    position: relative;
+    left: 37px;
+    font-size: 30px;
+}
+
+.pos {
+    margin-right: 5px;
+    margin-top: 2px
+}
+
+.s-pos {
+    margin: 4px 0px 0px 4px;
+}
+
+.ls1 {
+    letter-spacing: 1px; 
 }
