@@ -23,11 +23,12 @@ export class HelperInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    if (env.token) {
+    if (!env.token) {
       req = req.clone({
       setHeaders:
           {
-            Authorization: `Bearer ${env.token}`
+            // Authorization: `Bearer ${env.token}`
+            Authorization: `Basic ${btoa('jrolidevo00:eEBX-eK2mDV*u5MD')}`
           }
       });
     }
@@ -36,10 +37,9 @@ export class HelperInterceptor implements HttpInterceptor {
     .pipe(
       retry(1),
       catchError((err: HttpErrorResponse) => {
-        console.log(`Interceptor err: ${err}`);
-        console.log(`Interceptor err.error: ${err.error}`);
-        console.log(`Error: ${req.url}`);
-        // [X] TODO pop up/dialog
+        // console.log(`Interceptor err: ${err}`);
+        // console.log(`Interceptor err.error: ${err.error}`);
+        // console.log(`Error: ${req.url}`);
         const errorMessage = this.setError(err);
         this.apiS.ErrSub.next(errorMessage);
         return throwError(errorMessage);

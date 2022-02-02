@@ -7,6 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 export class ProcessService {
 
   isWatching: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  
+
   constructor() { }
 }

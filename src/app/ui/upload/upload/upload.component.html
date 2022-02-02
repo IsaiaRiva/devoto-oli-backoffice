@@ -1,2 +1,38 @@
-<p>upload works!</p>
-<button (click)="close()">Close</button>
+<div class="drag-drop-container">
+  <div class="drop-zone" style="height: 100%">
+    <ngx-file-drop
+      accept=".zip"
+      [multiple]="false"
+      (onFileDrop)="dropped($event)"
+    >
+      <ng-template
+        ngx-file-drop-content-tmp
+        let-openFileSelector="openFileSelector"
+      >
+        <img
+          src="../../../../assets/img/upload3.png"
+          alt=""
+          class="upload-img"
+        />
+        <span class="title m zi1">Trascina qui il file o </span>
+        <button class="df btn btn-blue zi1" (click)="openFileSelector()">
+          <span class="btn-txt">Cerca nel PC</span>
+        </button>
+      </ng-template>
+    </ngx-file-drop>
+  </div>
+
+  <div class="upload-table">
+    <div class="files">
+            <span class="title m">File: <br><span class="file">{{ file?.relativePath }}</span> </span>      
+    </div>
+    <div>
+      <button class="df btn btn-green mb10" (click)="upload()">
+        <span class="btn-txt">Carica</span>
+      </button>
+      <button class="df btn btn-red" (click)="close()">
+        <span class="btn-txt">Annulla</span>
+      </button>
+    </div>
+  </div>
+</div>

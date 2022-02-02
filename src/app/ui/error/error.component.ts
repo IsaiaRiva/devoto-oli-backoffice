@@ -1,5 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { MatSnackBar, MatSnackBarRef  } from '@angular/material/snack-bar';
+import { Component, OnDestroy } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrMsg } from './error';
 import { ApiHelperService } from 'src/app/services/helper/api-helper.service';
 
@@ -9,13 +9,13 @@ import { ApiHelperService } from 'src/app/services/helper/api-helper.service';
   `,
   styles: [``]
 })
-export class ErrorComponent implements AfterViewInit {
+export class ErrorComponent implements OnDestroy {
 
   constructor(
     private snackBar: MatSnackBar,
-    private apiS: ApiHelperService,
+    private apiS: ApiHelperService
   ) {
-    const $err = this.apiS.ErrSub.subscribe(err => {
+    this.apiS.ErrSub.subscribe(err => {
       this.showErr(err);
     });
   }
@@ -29,10 +29,8 @@ export class ErrorComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
-      console.log('The snackbar action was triggered!');
-      // $err.unsubscribe();
-    });
+  ngOnDestroy(): void {
+    // [ ] TODO check if does it work
+    this.apiS.ErrSub.unsubscribe();
   }
 }

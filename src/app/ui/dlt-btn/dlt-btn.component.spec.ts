@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InportFileMngComponent } from './inport-file-mng.component';
+import { DltBtnComponent } from './dlt-btn.component';
 
-describe('InportFileMngComponent', () => {
-  let component: InportFileMngComponent;
-  let fixture: ComponentFixture<InportFileMngComponent>;
+describe('DltBtnComponent', () => {
+  let component: DltBtnComponent;
+  let fixture: ComponentFixture<DltBtnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InportFileMngComponent ]
+      declarations: [ DltBtnComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InportFileMngComponent);
+    fixture = TestBed.createComponent(DltBtnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

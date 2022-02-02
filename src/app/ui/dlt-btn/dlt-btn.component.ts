@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-dlt-btn',
   template: `
-    <div style="height: 70px">
-    </div>
+    <p>
+      dlt-btn works!
+    </p>
   `,
   styles: [
   ]
 })
-export class FooterComponent implements OnInit {
+export class DltBtnComponent implements OnInit {
 
   constructor() { }
 

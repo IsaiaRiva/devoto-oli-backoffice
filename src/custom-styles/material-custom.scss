@@ -97,22 +97,6 @@
     padding: 13px !important;
 }
 
-// btn section
-.text-btn {
-    margin-left: 20px !important;
-    background-color: var(--dark);
-    color: var(--very-light);
-    font-size: 16px;
-    font-style: italic;
-    &:hover {
-        background-color: var(--very-dark);
-    }
-}
-
-.mat-stroked-button {
-    font-family: var(--normal);
-}
-
 // snack bar styling
 .mat-snack-bar-container {
     color: rgb(255 255 255);
@@ -135,4 +119,12 @@
     top: 4px;
     right: 4px;
     cursor: pointer;
+}
+
+// dialog section
+.mat-dialog-container {
+    background-color: var(--light-gray);
+    border-radius: 34px !important;
+    padding: 7px !important;
+    min-height: 350px !important;
 }

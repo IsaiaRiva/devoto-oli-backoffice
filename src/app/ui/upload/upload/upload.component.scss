@@ -1,0 +1,50 @@
+.drag-drop-container{
+    height: 200px;
+    width: 600px;
+    margin: 15px;
+
+    .drop-zone {
+        height: 100%;
+
+        .upload-img {
+            width: 200px;
+            position: absolute;
+            opacity: 0.2;
+        }
+    }
+
+    .upload-table {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 25px 10px;
+
+        .files {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px 5px;
+
+            .file {
+                font-size: 22px;
+                color: var(--black);
+                text-shadow: none;
+            }
+        }
+    }
+}
+
+.btn-txt {
+    letter-spacing: 1px;
+    margin-top: 3px;
+}
+
+.m {
+    margin: 0px !important;
+}
+
+.mb10 {
+    margin-bottom: 15px;
+}
+
+

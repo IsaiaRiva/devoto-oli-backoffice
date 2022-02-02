@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgxFileDropEntry } from 'ngx-file-drop';
 import { Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 
@@ -13,9 +14,9 @@ export class DictionaryService {
     private http: HttpClient
   ) { }
 
-  uploadDictionary(file: File): Observable<any> {
-    // [ ] TODO must be admin and file zip
-    return this.http.post(`${env.baseURL}${env.dicURL}/upload`, file);
+  uploadDictionary(formData: FormData): Observable<any> {
+    // [ ] TODO must be admin
+    return this.http.post(`${env.baseURL}${env.dicURL}/upload`,  formData, { responseType: 'blob' });
   }
 
   getDictionaryImportStatus(index: string): Observable<any> {

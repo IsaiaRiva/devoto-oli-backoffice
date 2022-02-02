@@ -15,9 +15,7 @@ export class DevicesMngComponent implements OnDestroy, AfterViewInit{
   title = 'Browser';
   data: Devicedata[] = [];
   dataSource: MatTableDataSource<Devicedata> = new MatTableDataSource<Devicedata>([]);
-
   columns = DEVICE_TAB_DEF;
-
   displayedColumns = this.columns.map(c => c.columnDef);
 
   @ViewChild(MatSort) sort: MatSort | undefined;
